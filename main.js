@@ -88,7 +88,7 @@ let track_list = [
     name: "Righteous",
     artist: "Juice Wrld",
     image: "Image URL",
-    path: "mikaelkraft.github.io/dwc/music/righteous.mp3"
+    path: "music/righteous.mp3"
   },
   
 ];
