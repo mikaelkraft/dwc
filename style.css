@@ -93,7 +93,7 @@ body {
   align-items: center center;
   align-content: center center;
   margin: 10px;
-  justify-content: center;
+  justify-content: center center;
   background-color: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
   border-radius: 10px;
@@ -124,7 +124,7 @@ h3 {
 
 .details {
   display: flex;
-  align-items: center;
+  align-items: center center;
   flex-direction: column;
   justify-content: center;
   margin-top: 15px;
@@ -132,8 +132,8 @@ h3 {
 
 @media screen and (max-width: 768px) {
   .track-art {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
   }
 }
 
@@ -173,7 +173,8 @@ h3 {
 .buttons {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center center;
+  justify-content: center center;
 }
 
 .playpause-track,
@@ -181,6 +182,8 @@ h3 {
 .next-track {
   padding: 20px;
   opacity: 0.8;
+  align-items: center center;
+  justify-contents: center center;
 
   /* Smoothly transition the opacity */
   transition: opacity .2s;
@@ -198,8 +201,8 @@ h3 {
   width: 75%;
   max-width: 400px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center center;
+  align-items: center center;
 }
 
 /* Modify the appearance of the slider */
@@ -506,6 +509,7 @@ footer {
   #container, #container2, .player, #lyrics {
     max-width: 80%;
     padding: 15px;
+    margin: 0 auto;
   }
 
   #clock {
