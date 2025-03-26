@@ -148,43 +148,31 @@
   <div id="spaces"></div> 
 
   <footer> 
-
    <hr class="line"> 
-
    <i class="fa fa-exclamation-triangle fa-2x"></i> 
-
    <div class="shun"> 
-
-    <span class="mob"> <p>All media contents are properties of <strong>Grade A Productions</strong> <em>via exclusive licensing to </em> <strong>Interscope Records © 2020</strong> </p></span> 
-
-    <span class="cop"> <p>The media stream is from <strong><u><a class="links" href="https://windsloaded.com/juice-wrld-righteous/">Windsloaded</a></u></strong>. Background is from <strong><a href="https://a.wattpad.com/cover/124708175-352-k927639.jpg">Wattpad</a></strong></p></span> 
-
+      <span class="mob"> 
+         <p>All media contents are properties of <strong>Grade A Productions</strong> 
+         <em>via exclusive licensing to </em> <strong>Interscope Records © 2020</strong></p>
+      </span> 
+      <span class="cop"> 
+         <p>The media stream is stored <strong><u>Locally</u></strong>. 
+         Background is from <strong><a href="https://a.wattpad.com/cover/124708175-352-k927639.jpg">Wattpad</a></strong></p>
+      </span> 
    </div> 
-
    <hr class="line"> 
-
-   <span>© 2022. All rights reserved. ❤️ Mikael Kraft</span> 
-
+   <span>© <span id="year"></span>. All rights reserved. ❤️ Mikael Kraft</span> 
    <div class="shun"> 
-
-    <p><span class="fab fa-creative-commons"></span> Free for Use under these terms &gt;&gt;</p> 
-
-    <a href="https://creativecommons.org/licenses/by-nc/4.0/"><img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a> 
-
+      <p><span class="fab fa-creative-commons"></span> Free for Use under these terms &gt;&gt;</p> 
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/">
+         <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png">
+      </a> 
    </div> 
+</footer>
 
-   <!-- you can use this js for copyright, but it's damn long and I skipped. Uncomment the next line--> 
-
-   <!-- <script type="text/javascript">
-
-var newt = new Date()
-
-document.write(newt.getFullYear())
-
-</script> --> 
-
-  </footer> 
-
+<script>
+   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
   <!-- Load the main script for the player --> 
 
   <script src="main.js"></script> 
