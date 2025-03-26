@@ -38,7 +38,7 @@ body {
   text-align: justify;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
-  padding: 15px;
+  padding: 30px;
 }
 
 #container2 {
@@ -48,7 +48,7 @@ body {
   text-align: center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
-  padding: 15px;
+  padding: 30px;
   margin-bottom: 15px;
 }
 
@@ -60,7 +60,7 @@ body {
   background: -moz-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5691d", endColorstr="#c1c556", GradientType=1);
+  :ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5691d", endColorstr="#c1c556", GradientType=1);
   border: 0px;
   border-radius: 25px;
   padding: 20px;
@@ -335,7 +335,7 @@ footer {
   background: -moz-linear-gradient(90deg, rgba(36, 14, 50, 1) 0%, rgba(253, 29, 29, 0.16506410256410253) 50%, rgba(71, 50, 21, 1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(36, 14, 50, 1) 0%, rgba(253, 29, 29, 0.16506410256410253) 50%, rgba(71, 50, 21, 1) 100%);
   background: linear-gradient(90deg, rgba(36, 14, 50, 1) 0%, rgba(253, 29, 29, 0.16506410256410253) 50%, rgba(71, 50, 21, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#240e32", endColorstr="#473215", GradientType=1);
+  :ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#240e32", endColorstr="#473215", GradientType=1);
   padding: 0 20px 0 20px;
   font-size: 12px;
   color: teal;
@@ -478,7 +478,7 @@ footer {
 /* General max-width to contain content on large screens */
 @media screen and (min-width: 1200px) {
   #container, #container2, .player, #lyrics {
-    max-width: 800px; /* Ensuring content doesn’t stretch too wide */
+    max-width: 700px; /* Ensuring content doesn’t stretch too wide */
     margin: 0 auto; /* Centering content */
   }
 }
@@ -486,7 +486,7 @@ footer {
 /* Medium screens: Adjust margins and padding */
 @media screen and (max-width: 1024px) {
   #container, #container2, .player, #lyrics {
-    max-width: 90%;
+    max-width: 80%;
     padding: 20px;
   }
 
@@ -499,7 +499,7 @@ footer {
 /* Small screens: Stack elements, reduce padding */
 @media screen and (max-width: 768px) {
   #container, #container2, .player, #lyrics {
-    max-width: 95%;
+    max-width: 85%;
     padding: 15px;
   }
 
