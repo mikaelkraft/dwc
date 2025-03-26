@@ -198,7 +198,7 @@ h3 {
 
 /* Define the slider width so that it scales properly */
 .slider_container {
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   display: flex;
 }
@@ -245,14 +245,14 @@ h3 {
 
 .current-time,
 .total-duration {
-  padding: 10px;
+  padding: 5px;
   color: white;
   font-size: 12px;
 }
 
 i.fa-volume-down,
 i.fa-volume-up {
-  padding: 10px;
+  padding: 5px;
   color: white;
   font-size: 16px;
 }
@@ -557,6 +557,6 @@ footer {
   }
 
   .seek_slider, .volume_slider {
-    width: 90%;
+    width: 70%;
   }
 }
