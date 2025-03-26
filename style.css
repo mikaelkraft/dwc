@@ -36,6 +36,7 @@ body {
   color: #ffffff;
   font-size: 14px;
   text-align: justify;
+  align-content: center center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
   padding: 30px;
@@ -46,6 +47,7 @@ body {
   color: #ffffff;
   font-size: 14px;
   text-align: center;
+  align-content: center center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
   padding: 20px;
@@ -85,12 +87,12 @@ body {
 
 
 .player {
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center center;
-  align-content: center;
-  margin: 0 auto;
+  align-content: center center;
+  margin: 10px;
   justify-content: center;
   background-color: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
@@ -490,18 +492,19 @@ footer {
   #container, #container2, .player, #lyrics {
     max-width: 90%;
     padding: 20px;
+    margin: 0 auto;
   }
 
   .track-art {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
   }
 }
 
 /* Small screens: Stack elements, reduce padding */
 @media screen and (max-width: 768px) {
   #container, #container2, .player, #lyrics {
-    max-width: 85%;
+    max-width: 80%;
     padding: 15px;
   }
 
@@ -510,8 +513,8 @@ footer {
   }
 
   .track-art {
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
   }
 
   .button {
@@ -528,7 +531,7 @@ footer {
 /* Extra Small Screens: Further reduce font sizes */
 @media screen and (max-width: 480px) {
   #clock {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .button {
