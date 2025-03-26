@@ -35,8 +35,9 @@ body {
   font-family: 'Courgette', sans-serif;
   color: #ffffff;
   font-size: 14px;
+  margin: 0 auto;
   text-align: justify;
-  align-content: center center;
+  align-content: center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
   padding: 30px;
@@ -46,8 +47,9 @@ body {
   font-family: 'Courgette', sans-serif;
   color: #ffffff;
   font-size: 14px;
+  margin: 0 auto;
   text-align: center;
-  align-content: center center;
+  align-content: center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
   padding: 20px;
@@ -90,10 +92,10 @@ body {
   height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center center;
-  align-content: center center;
-  margin: 10px;
-  justify-content: center center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  justify-content: center;
   background-color: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
   border-radius: 10px;
@@ -173,8 +175,8 @@ h3 {
 .buttons {
   display: flex;
   flex-direction: row;
-  align-items: center center;
-  justify-content: center center;
+  align-items: center;
+  justify-content: center;
 }
 
 .playpause-track,
@@ -182,8 +184,7 @@ h3 {
 .next-track {
   padding: 20px;
   opacity: 0.8;
-  align-items: center center;
-  justify-contents: center center;
+  margin: 0 auto
 
   /* Smoothly transition the opacity */
   transition: opacity .2s;
@@ -201,8 +202,8 @@ h3 {
   width: 75%;
   max-width: 400px;
   display: flex;
-  justify-content: center center;
-  align-items: center center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Modify the appearance of the slider */
