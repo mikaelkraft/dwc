@@ -48,7 +48,7 @@ body {
   text-align: center;
   background-color: rgba(255, 0, 0, 0.1);
   box-shadow: 5px 5px 18px red;
-  padding: 30px;
+  padding: 20px;
   margin-bottom: 15px;
 }
 
@@ -478,7 +478,7 @@ footer {
 /* General max-width to contain content on large screens */
 @media screen and (min-width: 1200px) {
   #container, #container2, .player, #lyrics {
-    max-width: 700px; /* Ensuring content doesn’t stretch too wide */
+    max-width: 800px; /* Ensuring content doesn’t stretch too wide */
     margin: 0 auto; /* Centering content */
   }
 }
@@ -486,7 +486,7 @@ footer {
 /* Medium screens: Adjust margins and padding */
 @media screen and (max-width: 1024px) {
   #container, #container2, .player, #lyrics {
-    max-width: 80%;
+    max-width: 90%;
     padding: 20px;
   }
 
