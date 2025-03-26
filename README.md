@@ -1,3 +1,4 @@
+![1000040042](https://github.com/user-attachments/assets/38f97682-29df-495c-a8a8-db9431c4b488)
 
 # Digital-Wrld-Clock
 > Wrld Clock dedicated to ```Juice Wrld``` based off the track, Righteous, from the```Legends Never  Die``` Album which spoke volume on substance abuse.
@@ -15,7 +16,7 @@ Some lines were commented out. you can re-enable them by uncommenting and follow
 ##### 🚪 font awesome.
 ##### add yours...
 
-### GET STARTED WITH ANY OF THE FOLLOWING:
+### WANNA FORK ME?:
 1. clone the repo to edit in your IDE or download full source code. Type the following in your Command Line or Terminal.
 
 ```gh repo clone mikaelkraft/Digital-Wrld-Clock```
