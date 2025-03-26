@@ -64,7 +64,7 @@ body {
   background: -moz-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
-  :ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5691d", endColorstr="#c1c556", GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5691d", endColorstr="#c1c556", GradientType=1);
   border: 0px;
   border-radius: 25px;
   padding: 20px;
@@ -89,9 +89,12 @@ body {
 
 
 .player {
-  height: auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   background-color: rgba(255, 0, 0, 0.2);
   border: 2px solid red;
   border-radius: 10px;
@@ -176,7 +179,7 @@ h3 {
 .playpause-track,
 .prev-track,
 .next-track {
-  padding: 20px;
+  padding: 100px;
   opacity: 0.8;
   margin: 0 auto
 
@@ -193,7 +196,7 @@ h3 {
 
 /* Define the slider width so that it scales properly */
 .slider_container {
-  width: 75%;
+  width: 90%;
   max-width: 400px;
   display: flex;
 }
