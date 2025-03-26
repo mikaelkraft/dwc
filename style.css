@@ -167,6 +167,7 @@ h3 {
   color: #11DD42;
   padding: 10px;
   text-shadow: 3px 3px 5px black;
+  margin-bottom: 5px;
 }
 
 /* Using flex with the row direction to
@@ -182,6 +183,7 @@ h3 {
   padding: 10px;
   opacity: 0.8;
   margin: 0 auto
+  font-size: 0.5rem
 
   /* Smoothly transition the opacity */
   transition: opacity .2s;
@@ -245,13 +247,14 @@ h3 {
 .total-duration {
   padding: 10px;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 i.fa-volume-down,
 i.fa-volume-up {
   padding: 10px;
   color: white;
+  font-size: 14
 }
 
 /* Change the mouse cursor to a pointer
