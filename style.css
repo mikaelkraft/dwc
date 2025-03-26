@@ -474,3 +474,76 @@ footer {
 .sticky + body {
   padding-top: 60px;
 }*/
+/* General max-width to contain content on large screens */
+@media screen and (min-width: 1200px) {
+  #container, #container2, .player, #lyrics {
+    max-width: 800px; /* Ensuring content doesn’t stretch too wide */
+    margin: 0 auto; /* Centering content */
+  }
+}
+
+/* Medium screens: Adjust margins and padding */
+@media screen and (max-width: 1024px) {
+  #container, #container2, .player, #lyrics {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .track-art {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+/* Small screens: Stack elements, reduce padding */
+@media screen and (max-width: 768px) {
+  #container, #container2, .player, #lyrics {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  #clock {
+    font-size: 30px;
+  }
+
+  .track-art {
+    height: 150px;
+    width: 150px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .topnav a {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* Extra Small Screens: Further reduce font sizes */
+@media screen and (max-width: 480px) {
+  #clock {
+    font-size: 24px;
+  }
+
+  .button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .topnav a {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .track-art {
+    height: 120px;
+    width: 120px;
+  }
+
+  .seek_slider, .volume_slider {
+    width: 90%;
+  }
+}
