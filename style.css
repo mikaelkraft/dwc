@@ -125,7 +125,7 @@ h3 {
 
 .details {
   display: flex;
-  align-items: center center;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
   margin-top: 15px;
@@ -179,7 +179,7 @@ h3 {
 .playpause-track,
 .prev-track,
 .next-track {
-  padding: 100px;
+  padding: 10px;
   opacity: 0.8;
   margin: 0 auto
 
@@ -234,7 +234,7 @@ h3 {
 }
 
 .seek_slider {
-  width: 80%;
+  width: 90%;
 }
 
 .volume_slider {
@@ -310,6 +310,7 @@ i.fab-creative-commons {
   font-family: 'Righteous', sans-serif;
   float: left;
   color: red;
+  padding-left: 10px;
   text-align: center;
   background-color: black;
   border-radius: 50%;
