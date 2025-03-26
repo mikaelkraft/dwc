@@ -88,7 +88,7 @@ let track_list = [
     name: "Righteous",
     artist: "Juice Wrld",
     image: "Image URL",
-    path: "https://www.windsloaded.com/wp-content/uploads/2022/07/Juice_WRLD_-_Righteous_Windsloaded.com.mp3"
+    path: "music/righteous.mp3"
   },
   
 ];
