@@ -80,14 +80,6 @@ body {
   cursor: pointer;
 }
 
-/* aligning items in a vertical direction using flex with the column direction for the music player*/
-@media screen and (max-width: 567px) {
-  .player {
-    height: 60px;
-  }
-}
-
-
 .player {
   height: 100vh;
   display: flex;
@@ -144,7 +136,7 @@ h3 {
 /* Changing the control look and feel to suitable choices */
 .now-playing {
   font-size: 0.6rem;
-  color: red;
+  color: white;
 }
 
 .track-name {
