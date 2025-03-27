@@ -150,8 +150,8 @@ h3 {
 
 /* Changing the control look and feel to suitable choices */
 .now-playing {
-  font-size: 0.8rem;
-  color: white;
+  font-size: 0.6rem;
+  color: red;
 }
 
 .track-name {
@@ -198,7 +198,7 @@ h3 {
 
 /* Define the slider width so that it scales properly */
 .slider_container {
-  width: 100%;
+  width: 70%;
   max-width: 400px;
   display: flex;
 }
@@ -236,7 +236,7 @@ h3 {
 }
 
 .seek_slider {
-  width: 90%;
+  width: 70%;
 }
 
 .volume_slider {
@@ -245,7 +245,7 @@ h3 {
 
 .current-time,
 .total-duration {
-  padding: 5px;
+  padding: 10px;
   color: white;
   font-size: 12px;
 }
@@ -300,9 +300,10 @@ i.fab-creative-commons {
 .topnav a {
   justify-content: center;
   padding: 10px;
-  vertical-align: middle;
+  vertical-align: center;
+  align-items: center;
   color: white;
-  margin-top: 5px;
+  margin: 10px;
   background-color: black;
   border-radius: 10px;
   text-align: center;
@@ -453,11 +454,11 @@ footer {
   }
 
   50% {
-    background-position: 100% 70%;
+    background-position: 90% 50%;
   }
 
   100% {
-    background-position: 0% 80%;
+    background-position: 0% 40%;
   }
 }
 
@@ -557,6 +558,6 @@ footer {
   }
 
   .seek_slider, .volume_slider {
-    width: 70%;
+    width: 60%;
   }
 }
