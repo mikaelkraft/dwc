@@ -19,7 +19,7 @@ Some lines were commented out. you can re-enable them by uncommenting and follow
 ### WANNA FORK ME?:
 1. clone the repo to edit in your IDE or download full source code. Type the following in your Command Line or Terminal.
 
-```gh repo clone mikaelkraft/Digital-Wrld-Clock```
+```gh repo clone mikaelkraft/dwc```
 
 2. Using Shell (SSH)
 ````git@github.com:mikaelkraft/dwc.git````
