@@ -175,6 +175,7 @@ h3 {
 .buttons {
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
 }
 
 .playpause-track,
@@ -200,7 +201,7 @@ h3 {
 .slider_container {
   width: 70%;
   max-width: 400px;
-  display: flex;
+  display: inline-flex;
 }
 
 /* Modify the appearance of the slider */
@@ -237,10 +238,12 @@ h3 {
 
 .seek_slider {
   width: 70%;
+  margin: 0 auto;
 }
 
 .volume_slider {
-  width: 50%;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .current-time,
@@ -303,7 +306,7 @@ i.fab-creative-commons {
   vertical-align: center;
   align-items: center;
   color: white;
-  margin: 10px;
+  margin-right: 10px;
   background-color: black;
   border-radius: 10px;
   text-align: center;
@@ -386,7 +389,7 @@ footer {
   background: -moz-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
-  border: 1px solid 11dd42;
+  border: 1px solid #11dd42;
 }
 
 .swal-button {
@@ -395,7 +398,7 @@ footer {
   background: -webkit-linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   background: linear-gradient(90deg, rgba(213, 105, 29, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(193, 197, 86, 1) 100%);
   color: white;
-  border: 1px solid 11dd42;
+  border: 1px solid #11dd42;
 }
 
 .alert2 {
@@ -454,11 +457,11 @@ footer {
   }
 
   50% {
-    background-position: 90% 50%;
+    background-position: 100% 50%;
   }
 
   100% {
-    background-position: 0% 40%;
+    background-position: 0% 50%;
   }
 }
 
@@ -468,11 +471,11 @@ footer {
   }
 
   50% {
-    background-position: 90% 50%;
+    background-position: 100% 50%;
   }
 
   100% {
-    background-position: 0% 40%;
+    background-position: 0% 50%;
   }
 }
 
