@@ -133,7 +133,7 @@ h3 {
 
 /* Changing the control look and feel to suitable choices */
 .now-playing {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: white;
 }
 
@@ -167,7 +167,7 @@ h3 {
   padding: 10px;
   opacity: 0.8;
   margin: 0 auto
-  font-size: 0.5rem
+  font-size: 0.3rem
 
   /* Smoothly transition the opacity */
   transition: opacity .2s;
