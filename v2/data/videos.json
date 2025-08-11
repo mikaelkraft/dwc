@@ -1,0 +1,18 @@
+[
+  {
+    "id": "juice-wrld-tribute",
+    "platform": "youtube",
+    "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "title": "Juice WRLD - Righteous (Official Music Video)",
+    "description": "Official music video for Righteous by Juice WRLD from the album Legends Never Die",
+    "thumbnail": "https://via.placeholder.com/320x180/1a1a2e/00f5ff?text=Music+Video"
+  },
+  {
+    "id": "behind-scenes", 
+    "platform": "vimeo",
+    "url": "https://vimeo.com/76979871",
+    "title": "Behind the Scenes - Studio Sessions",
+    "description": "Exclusive behind-the-scenes footage from recording sessions",
+    "thumbnail": "https://via.placeholder.com/320x180/2e1a1a/ff5f00?text=Behind+Scenes"
+  }
+]
