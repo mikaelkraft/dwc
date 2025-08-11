@@ -1,184 +1,151 @@
+<!DOCTYPE html>
 <html lang="en">
-
- <head> 
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-  <!-- Load FontAwesome icons --> 
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> 
-
-  <!-- custom CSS style file --> 
-
-  <link rel="stylesheet" type="text/css" href="style.css"> 
-
-  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> 
-
-  <!-- Viewport baeby--> 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-
-  <meta charset="UTF-8"> 
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-
- </head> 
-
- <body> 
-
-  <div class="topnav"> 
-
-   <a class="brand" href="#home">MK</a> 
-
-   <a href="https://x.com/mikael_kraft"><span class="fab fa-twitter"></span> Contact Us</a> 
-
-   <a href="https://github.com/mikaelkraft"><span class="fab fa-github"></span> About Us</a> 
-
-  </div> 
-
-  <div id="clock"></div> 
-
-  <p align="center"> <input type="button" class="button" onclick="fillData(); reEnable()" value="CLICK FOR JUICE WRLD"> </p> 
-
-  <div id="container"> 
-
-   <div id="container2"> 
-
-    <p> The TIME font is called RIGHTEOUS: A title to one of Juice Wrld songs. A campaign against hard drugs.</p> 
-
-   </div> 
-
-  </div> 
-
-  <!-- here displays the player container--> 
-
-  <div class="player" border="3px"> 
-
-   <!-- Define the section for displaying details --> 
-
-   <div class="details"> 
-
-    <div class="now-playing">
-
-      PLAYING x OF y 
-
-    </div> 
-
-    <div class="track-art"></div> 
-
-    <div class="track-name">
-
-      Track Name 
-
-    </div> 
-
-    <div class="track-artist">
-
-      Track Artist 
-
-    </div> 
-
-   </div> 
-
-   <!-- Define the section for displaying track buttons --> 
-
-   <div class="buttons"> 
-
-    <div class="prev-track" onclick="prevTrack()"> 
-
-     <i class="fa fa-step-backward fa-2x"></i> 
-
-    </div> 
-
-    <div class="playpause-track" id="playpause-track" onclick="playpauseTrack()"> 
-
-     <i class="fa fa-play-circle fa-3x"></i> 
-
-    </div> 
-
-    <div class="next-track" onclick="nextTrack()"> 
-
-     <i class="fa fa-step-forward fa-2x"></i> 
-
-    </div> 
-
-   </div> 
-
-   <!-- The section for displaying the seek slider--> 
-
-   <div class="slider_container"> 
-
-    <div class="current-time">
-
-      00:00 
-
-    </div> 
-
-    <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()"> 
-
-    <div class="total-duration">
-
-      00:00 
-
-    </div> 
-
-   </div> 
-
-   <!-- The section for displaying the volume slider--> 
-
-   <div class="slider_container"> 
-
-    <i class="fa fa-volume-down fa-2x"></i> 
-
-    <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()"> 
-
-    <i class="fa fa-volume-up fa-2x"></i> 
-
-   </div> 
-
-  </div> 
-
-  <div id="spaces"></div> 
-
-  <div id="lyrics"> 
-
-   <em><strong>LYRICS WILL SHOW HERE ONCE THE MUSIC STARTS</strong></em> 
-
-  </div> 
-
-  <div id="spaces"></div> 
-
-  <footer> 
-   <hr class="line"> 
-   <i class="fa fa-exclamation-triangle fa-2x"></i> 
-   <div class="shun"> 
-      <span class="mob"> 
-         <p>All media contents are properties of <strong>Grade A Productions</strong> 
-         <em>via exclusive licensing to </em> <strong>Interscope Records © 2020</strong></p>
-      </span> 
-      <span class="cop"> 
-         <p>The media stream is stored <strong><u>Locally</u></strong>. 
-         Background is from <strong><a href="https://a.wattpad.com/cover/124708175-352-k927639.jpg">Wattpad</a></strong></p>
-      </span> 
-   </div> 
-   <hr class="line"> 
-   <span>© <span id="year"></span>. All rights reserved. ❤️ Mikael Kraft</span> 
-   <div class="shun"> 
-      <p><span class="fab fa-creative-commons"></span> Free for Use under these terms &gt;&gt;</p> 
-      <a href="https://creativecommons.org/licenses/by-nc/4.0/">
-         <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png">
-      </a> 
-   </div> 
-</footer>
-
-<script>
-   document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-  <!-- Load the main script for the player --> 
-
-  <script src="main.js"></script> 
-
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
-
- </body>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital World Clock - Redirecting to v2</title>
+    
+    <!-- Meta refresh redirect -->
+    <meta http-equiv="refresh" content="0; url=/v2/">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .redirect-container {
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .spinner {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            color: #00f5ff;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .fallback-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #00f5ff, #ff00ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .fallback-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+        }
+        
+        .version-links {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .version-links a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .version-links a:hover {
+            color: #00f5ff;
+            border-color: rgba(0, 245, 255, 0.5);
+            background: rgba(0, 245, 255, 0.1);
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <div class="logo">DWC v2.0</div>
+        <div class="message">
+            Redirecting to the new Digital World Clock experience...
+        </div>
+        <div class="spinner">⟳</div>
+        
+        <!-- Fallback link if redirect doesn't work -->
+        <a href="/v2/" class="fallback-link">
+            Take me to v2 →
+        </a>
+        
+        <div class="version-links">
+            <a href="/v2/">v2 (New)</a>
+            <a href="/v1-index.html">v1 (Classic)</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © <span id="year"></span> Mikael Kraft - Digital World Clock
+    </div>
+    
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // JavaScript redirect as fallback
+        setTimeout(() => {
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                window.location.href = '/v2/';
+            }
+        }, 1000);
+        
+        // Handle cases where we're already in a subdirectory
+        if (window.location.pathname.includes('/dwc/') && !window.location.pathname.includes('/v2/')) {
+            const basePath = window.location.pathname.substring(0, window.location.pathname.indexOf('/dwc/') + 5);
+            window.location.href = basePath + 'v2/';
+        }
+    </script>
+</body>
 </html>

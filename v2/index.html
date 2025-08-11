@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital World Clock - Artist Hub v2</title>
+    
+    <!-- Futuristic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background particle system -->
+    <div id="particles-container"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text">DWC</span>
+                <span class="brand-sub">v2.0</span>
+            </div>
+            <nav class="nav">
+                <a href="https://x.com/mikael_kraft" class="nav-link">
+                    <i class="fab fa-twitter"></i>
+                    <span>Contact</span>
+                </a>
+                <a href="https://github.com/mikaelkraft" class="nav-link">
+                    <i class="fab fa-github"></i>
+                    <span>Source</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- Digital clock -->
+        <div class="clock-container">
+            <div id="digital-clock" class="digital-clock"></div>
+            <div class="clock-label">Current Time</div>
+        </div>
+
+        <!-- Player container -->
+        <div class="player-container">
+            <!-- Track info -->
+            <div class="track-info">
+                <div class="track-artwork">
+                    <img id="track-image" src="" alt="Track artwork" />
+                    <div class="artwork-overlay">
+                        <div class="play-indicator">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="track-details">
+                    <h1 id="track-title" class="track-title">Track Title</h1>
+                    <p id="track-artist" class="track-artist">Artist Name</p>
+                    <p id="track-album" class="track-album">Album Name</p>
+                </div>
+            </div>
+
+            <!-- Audio visualizer -->
+            <div class="visualizer-container">
+                <canvas id="visualizer" class="visualizer"></canvas>
+            </div>
+
+            <!-- Player controls -->
+            <div class="player-controls">
+                <button id="prev-btn" class="control-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play-pause-btn" class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next-btn" class="control-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="shuffle-btn" class="control-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button id="repeat-btn" class="control-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="progress-container">
+                <span id="current-time" class="time-display">0:00</span>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                        <div id="progress-handle" class="progress-handle"></div>
+                    </div>
+                </div>
+                <span id="total-time" class="time-display">0:00</span>
+            </div>
+
+            <!-- Volume control -->
+            <div class="volume-container">
+                <i class="fas fa-volume-down"></i>
+                <div class="volume-bar-container">
+                    <div id="volume-bar" class="volume-bar">
+                        <div id="volume-fill" class="volume-fill"></div>
+                        <div id="volume-handle" class="volume-handle"></div>
+                    </div>
+                </div>
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
+
+        <!-- Lyrics display -->
+        <div class="lyrics-container">
+            <h2 class="lyrics-header">
+                <i class="fas fa-music"></i>
+                Lyrics
+            </h2>
+            <div id="lyrics-display" class="lyrics-display">
+                <div class="lyrics-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading lyrics...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin panel (optional) -->
+        <div id="admin-panel" class="admin-panel" style="display: none;">
+            <h3>Admin Panel</h3>
+            <div class="admin-controls">
+                <button id="login-btn" class="admin-btn">Login</button>
+                <button id="logout-btn" class="admin-btn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="copyright">
+                © <span id="current-year"></span> Mikael Kraft. All rights reserved.
+            </p>
+            <p class="attribution">
+                <i class="fas fa-exclamation-triangle"></i>
+                All media contents are properties of their respective owners.
+            </p>
+            <div class="license">
+                <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+                    <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png" alt="Creative Commons License">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio element -->
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="publicData.js"></script>
+    <script src="providers/lyricsProviders.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
