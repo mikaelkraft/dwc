@@ -1,0 +1,184 @@
+<html lang="en">
+
+ <head> 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <!-- Load FontAwesome icons --> 
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> 
+
+  <!-- custom CSS style file --> 
+
+  <link rel="stylesheet" type="text/css" href="style.css"> 
+
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> 
+
+  <!-- Viewport baeby--> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <meta charset="UTF-8"> 
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+
+ </head> 
+
+ <body> 
+
+  <div class="topnav"> 
+
+   <a class="brand" href="#home">MK</a> 
+
+   <a href="https://x.com/mikael_kraft"><span class="fab fa-twitter"></span> Contact Us</a> 
+
+   <a href="https://github.com/mikaelkraft"><span class="fab fa-github"></span> About Us</a> 
+
+  </div> 
+
+  <div id="clock"></div> 
+
+  <p align="center"> <input type="button" class="button" onclick="fillData(); reEnable()" value="CLICK FOR JUICE WRLD"> </p> 
+
+  <div id="container"> 
+
+   <div id="container2"> 
+
+    <p> The TIME font is called RIGHTEOUS: A title to one of Juice Wrld songs. A campaign against hard drugs.</p> 
+
+   </div> 
+
+  </div> 
+
+  <!-- here displays the player container--> 
+
+  <div class="player" border="3px"> 
+
+   <!-- Define the section for displaying details --> 
+
+   <div class="details"> 
+
+    <div class="now-playing">
+
+      PLAYING x OF y 
+
+    </div> 
+
+    <div class="track-art"></div> 
+
+    <div class="track-name">
+
+      Track Name 
+
+    </div> 
+
+    <div class="track-artist">
+
+      Track Artist 
+
+    </div> 
+
+   </div> 
+
+   <!-- Define the section for displaying track buttons --> 
+
+   <div class="buttons"> 
+
+    <div class="prev-track" onclick="prevTrack()"> 
+
+     <i class="fa fa-step-backward fa-2x"></i> 
+
+    </div> 
+
+    <div class="playpause-track" id="playpause-track" onclick="playpauseTrack()"> 
+
+     <i class="fa fa-play-circle fa-3x"></i> 
+
+    </div> 
+
+    <div class="next-track" onclick="nextTrack()"> 
+
+     <i class="fa fa-step-forward fa-2x"></i> 
+
+    </div> 
+
+   </div> 
+
+   <!-- The section for displaying the seek slider--> 
+
+   <div class="slider_container"> 
+
+    <div class="current-time">
+
+      00:00 
+
+    </div> 
+
+    <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()"> 
+
+    <div class="total-duration">
+
+      00:00 
+
+    </div> 
+
+   </div> 
+
+   <!-- The section for displaying the volume slider--> 
+
+   <div class="slider_container"> 
+
+    <i class="fa fa-volume-down fa-2x"></i> 
+
+    <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()"> 
+
+    <i class="fa fa-volume-up fa-2x"></i> 
+
+   </div> 
+
+  </div> 
+
+  <div id="spaces"></div> 
+
+  <div id="lyrics"> 
+
+   <em><strong>LYRICS WILL SHOW HERE ONCE THE MUSIC STARTS</strong></em> 
+
+  </div> 
+
+  <div id="spaces"></div> 
+
+  <footer> 
+   <hr class="line"> 
+   <i class="fa fa-exclamation-triangle fa-2x"></i> 
+   <div class="shun"> 
+      <span class="mob"> 
+         <p>All media contents are properties of <strong>Grade A Productions</strong> 
+         <em>via exclusive licensing to </em> <strong>Interscope Records © 2020</strong></p>
+      </span> 
+      <span class="cop"> 
+         <p>The media stream is stored <strong><u>Locally</u></strong>. 
+         Background is from <strong><a href="https://a.wattpad.com/cover/124708175-352-k927639.jpg">Wattpad</a></strong></p>
+      </span> 
+   </div> 
+   <hr class="line"> 
+   <span>© <span id="year"></span>. All rights reserved. ❤️ Mikael Kraft</span> 
+   <div class="shun"> 
+      <p><span class="fab fa-creative-commons"></span> Free for Use under these terms &gt;&gt;</p> 
+      <a href="https://creativecommons.org/licenses/by-nc/4.0/">
+         <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png">
+      </a> 
+   </div> 
+</footer>
+
+<script>
+   document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  <!-- Load the main script for the player --> 
+
+  <script src="main.js"></script> 
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
+
+ </body>
+
+</html>
