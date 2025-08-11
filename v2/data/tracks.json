@@ -5,6 +5,8 @@
     "artist": "Juice WRLD",
     "coverUrl": "https://via.placeholder.com/300x300/1a1a2e/00f5ff?text=Righteous",
     "audioUrl": "../music/righteous.mp3",
+    "previewUrl": "https://via.placeholder.com/1x1.mp3",
+    "previewOnly": false,
     "lrcUrl": "./sample.lrc",
     "duration": "3:23",
     "album": "Legends Never Die",
@@ -16,6 +18,50 @@
       },
       "kugou": {
         "keyword": "Righteous Juice WRLD"
+      }
+    }
+  },
+  {
+    "id": "future-track-1",
+    "title": "Digital Dreams",
+    "artist": "DWC Artist",
+    "coverUrl": "https://via.placeholder.com/300x300/2e1a2e/ff5f00?text=Digital+Dreams",
+    "audioUrl": "",
+    "previewUrl": "https://via.placeholder.com/1x1.mp3",
+    "previewOnly": true,
+    "lrcUrl": "",
+    "duration": "2:45",
+    "album": "Future Sounds",
+    "providers": {
+      "lrclib": {
+        "title": "Digital Dreams",
+        "artist": "DWC Artist",
+        "album": "Future Sounds"
+      },
+      "kugou": {
+        "keyword": "Digital Dreams DWC"
+      }
+    }
+  },
+  {
+    "id": "future-track-2",
+    "title": "Neon Nights",
+    "artist": "DWC Artist",
+    "coverUrl": "https://via.placeholder.com/300x300/1a2e1a/ff0080?text=Neon+Nights",
+    "audioUrl": "",
+    "previewUrl": "https://via.placeholder.com/1x1.mp3",
+    "previewOnly": true,
+    "lrcUrl": "",
+    "duration": "3:12",
+    "album": "Future Sounds",
+    "providers": {
+      "lrclib": {
+        "title": "Neon Nights",
+        "artist": "DWC Artist",
+        "album": "Future Sounds"
+      },
+      "kugou": {
+        "keyword": "Neon Nights DWC"
       }
     }
   }

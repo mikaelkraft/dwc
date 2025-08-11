@@ -15,12 +15,34 @@ class VideosModule {
 
     async loadVideos() {
         try {
+            // Try loading from Worker if live data is enabled
+            if (window.DWC_CONFIG?.USE_LIVE_DATA && window.DWC_CONFIG?.CONTENT_WRITE_PROXY) {
+                try {
+                    console.log('Attempting to load videos from Worker...');
+                    const response = await fetch(`${window.DWC_CONFIG.CONTENT_WRITE_PROXY}/api/content/videos`, {
+                        mode: 'cors',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        this.videos = await response.json();
+                        console.log('Videos loaded from Worker:', this.videos.length);
+                        return;
+                    }
+                } catch (workerError) {
+                    console.warn('Failed to load videos from Worker, falling back to local JSON:', workerError);
+                }
+            }
+
+            // Fallback to local JSON
             const response = await fetch('./data/videos.json');
             if (!response.ok) {
                 throw new Error(`Failed to load videos: ${response.status}`);
             }
             this.videos = await response.json();
-            console.log('Videos loaded:', this.videos.length);
+            console.log('Videos loaded from local JSON:', this.videos.length);
         } catch (error) {
             console.error('Error loading videos:', error);
             this.videos = [];
@@ -256,6 +278,12 @@ class VideosModule {
 
     getVideo(videoId) {
         return this.videos.find(v => v.id === videoId) || null;
+    }
+
+    // Admin method for updating videos
+    updateVideos(newVideos) {
+        this.videos = newVideos;
+        this.renderVideos();
     }
 }
 

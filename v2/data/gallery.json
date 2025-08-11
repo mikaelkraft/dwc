@@ -1,0 +1,41 @@
+[
+  {
+    "id": "digital-landscape-1",
+    "title": "Digital Landscape #1",
+    "url": "https://via.placeholder.com/800x600/1a1a2e/00f5ff?text=Digital+Landscape+1",
+    "thumbnail": "https://via.placeholder.com/300x200/1a1a2e/00f5ff?text=Digital+1",
+    "description": "A futuristic cityscape bathed in neon light",
+    "tags": ["digital", "cityscape", "neon"],
+    "photoSpeak": {
+      "enabled": true,
+      "audioUrl": "https://via.placeholder.com/1x1.mp3",
+      "transcript": "Welcome to the digital frontier, where neon lights dance across towering structures of glass and steel."
+    }
+  },
+  {
+    "id": "abstract-waves",
+    "title": "Abstract Waves",
+    "url": "https://via.placeholder.com/800x600/2e1a2e/ff5f00?text=Abstract+Waves",
+    "thumbnail": "https://via.placeholder.com/300x200/2e1a2e/ff5f00?text=Waves",
+    "description": "Flowing patterns that represent the rhythm of digital music",
+    "tags": ["abstract", "waves", "patterns"],
+    "photoSpeak": {
+      "enabled": false,
+      "audioUrl": "",
+      "transcript": ""
+    }
+  },
+  {
+    "id": "cyber-portal",
+    "title": "Cyber Portal",
+    "url": "https://via.placeholder.com/800x600/1a2e1a/ff0080?text=Cyber+Portal",
+    "thumbnail": "https://via.placeholder.com/300x200/1a2e1a/ff0080?text=Portal",
+    "description": "A gateway to infinite digital possibilities",
+    "tags": ["cyber", "portal", "gateway"],
+    "photoSpeak": {
+      "enabled": true,
+      "audioUrl": "https://via.placeholder.com/1x1.mp3",
+      "transcript": "Step through the portal and immerse yourself in a world where music becomes reality."
+    }
+  }
+]

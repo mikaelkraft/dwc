@@ -25,6 +25,10 @@
                 <span class="brand-sub">v2.0</span>
             </div>
             <nav class="nav">
+                <a href="#" id="v1-link" class="nav-link" title="View V1 Site">
+                    <i class="fas fa-history"></i>
+                    <span>V1</span>
+                </a>
                 <a href="https://x.com/mikael_kraft" class="nav-link">
                     <i class="fab fa-twitter"></i>
                     <span>Contact</span>
@@ -43,6 +47,16 @@
         <div class="clock-container">
             <div id="digital-clock" class="digital-clock"></div>
             <div class="clock-label">Current Time</div>
+        </div>
+
+        <!-- Music search box -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="music-search" placeholder="Search for music..." class="search-input">
+                <button id="search-btn" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Player container -->
@@ -162,6 +176,8 @@
     <script src="config.js"></script>
     <script src="publicData.js"></script>
     <script src="providers/lyricsProviders.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/gallery.js"></script>
     <script src="js/music.js"></script>
     <script src="js/videos.js"></script>
     <script src="js/shows.js"></script>
@@ -172,6 +188,14 @@
     <script>
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Set V1 link URL from config
+        document.addEventListener('DOMContentLoaded', () => {
+            const v1Link = document.getElementById('v1-link');
+            if (v1Link && window.DWC_CONFIG?.V1_URL) {
+                v1Link.href = window.DWC_CONFIG.V1_URL;
+            }
+        });
     </script>
 </body>
 </html>

@@ -6,8 +6,20 @@ window.DWC_CONFIG = {
     // LRCLib configuration
     LRCLIB_ENABLED: true,
     
-    // Content write proxy for admin operations (future Cloudflare Worker)
+    // Content write proxy for admin operations (Cloudflare Worker)
     CONTENT_WRITE_PROXY: '',
+    
+    // Content write token for admin authentication (set only for trusted admin usage)
+    CONTENT_WRITE_TOKEN: '',
+    
+    // Enable live data loading from Workers (fallback to local JSON on error)
+    USE_LIVE_DATA: false,
+    
+    // V1 site URL for header icon link
+    V1_URL: '../index.html',
+    
+    // Enable search query logging to Worker
+    SEARCH_LOGGING_ENABLED: false,
     
     // Supabase configuration - optional, disabled by default
     SUPABASE: {
