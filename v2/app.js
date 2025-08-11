@@ -17,24 +17,12 @@ class DWCApp {
         this.dataArray = null;
         this.source = null;
         
-        // Module instances
-        this.musicModule = null;
-        this.videosModule = null;
-        this.showsModule = null;
-        this.linksModule = null;
-        this.adminModule = null;
-        
         this.init();
     }
 
     async init() {
         this.setupEventListeners();
         this.startClock();
-        
-        // Initialize modules
-        await this.initializeModules();
-        
-        // Load initial track
         this.loadTrack(0);
         
         // Setup visualizer
@@ -44,40 +32,6 @@ class DWCApp {
         
         // Load lyrics for current track
         await this.loadLyrics();
-    }
-
-    async initializeModules() {
-        try {
-            // Initialize music module first
-            this.musicModule = new window.MusicModule(this);
-            window.musicModule = this.musicModule;
-            
-            // Initialize other modules
-            this.videosModule = new window.VideosModule();
-            window.videosModule = this.videosModule;
-            
-            this.showsModule = new window.ShowsModule();
-            window.showsModule = this.showsModule;
-            
-            this.linksModule = new window.LinksModule();
-            window.linksModule = this.linksModule;
-            
-            // Initialize admin module last
-            this.adminModule = new window.AdminModule();
-            window.adminModule = this.adminModule;
-            
-            // Set module references for admin
-            this.adminModule.setModules({
-                music: this.musicModule,
-                videos: this.videosModule,
-                shows: this.showsModule,
-                links: this.linksModule
-            });
-            
-            console.log('All modules initialized successfully');
-        } catch (error) {
-            console.error('Error initializing modules:', error);
-        }
     }
 
     setupEventListeners() {
@@ -193,8 +147,7 @@ class DWCApp {
     }
 
     loadTrack(index) {
-        // Get tracks from music module if available, otherwise fallback to PUBLIC_DATA
-        const tracks = this.musicModule?.getAllTracks() || window.PUBLIC_DATA.tracks;
+        const tracks = window.PUBLIC_DATA.tracks;
         if (index < 0 || index >= tracks.length) return;
         
         this.currentTrack = index;
@@ -206,28 +159,17 @@ class DWCApp {
         // Update UI
         document.getElementById('track-title').textContent = track.title;
         document.getElementById('track-artist').textContent = track.artist;
-        document.getElementById('track-album').textContent = track.album || '';
-        document.getElementById('track-image').src = track.coverUrl || track.imageUrl;
+        document.getElementById('track-album').textContent = track.album;
+        document.getElementById('track-image').src = track.imageUrl;
         document.getElementById('track-image').alt = `${track.title} by ${track.artist}`;
-        
-        // Update music module current track highlight
-        if (this.musicModule) {
-            this.musicModule.updateCurrentTrack(index);
-        }
         
         // Load lyrics
         this.loadLyrics();
     }
 
     async loadLyrics() {
-        const tracks = this.musicModule?.getAllTracks() || window.PUBLIC_DATA.tracks;
-        const track = tracks[this.currentTrack];
+        const track = window.PUBLIC_DATA.tracks[this.currentTrack];
         const lyricsDisplay = document.getElementById('lyrics-display');
-        
-        if (!track) {
-            this.displayNoLyrics();
-            return;
-        }
         
         // Show loading
         lyricsDisplay.innerHTML = `
@@ -238,19 +180,7 @@ class DWCApp {
         `;
         
         try {
-            // Try to fetch lyrics using the track's provider information if available
-            let lyrics = null;
-            
-            if (track.providers?.lrclib && window.DWC_CONFIG.LRCLIB_ENABLED) {
-                lyrics = await window.lyricsProviders.fetchFromLRCLib(
-                    track.providers.lrclib.title, 
-                    track.providers.lrclib.artist
-                );
-            }
-            
-            if (!lyrics) {
-                lyrics = await window.lyricsProviders.fetchLyrics(track.title, track.artist);
-            }
+            const lyrics = await window.lyricsProviders.fetchLyrics(track.title, track.artist);
             
             if (lyrics) {
                 this.currentLyrics = lyrics;
@@ -431,7 +361,6 @@ class DWCApp {
     }
 
     previousTrack() {
-        const tracks = this.musicModule?.getAllTracks() || window.PUBLIC_DATA.tracks;
         const newIndex = this.currentTrack - 1;
         if (newIndex >= 0) {
             this.loadTrack(newIndex);
@@ -439,7 +368,7 @@ class DWCApp {
     }
 
     nextTrack() {
-        const tracks = this.musicModule?.getAllTracks() || window.PUBLIC_DATA.tracks;
+        const tracks = window.PUBLIC_DATA.tracks;
         const newIndex = this.currentTrack + 1;
         if (newIndex < tracks.length) {
             this.loadTrack(newIndex);
