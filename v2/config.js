@@ -3,6 +3,12 @@ window.DWC_CONFIG = {
     // Kugou proxy URL - to be filled by maintainer after deploying the Worker
     KUGOU_PROXY: '',
     
+    // LRCLib configuration
+    LRCLIB_ENABLED: true,
+    
+    // Content write proxy for admin operations (future Cloudflare Worker)
+    CONTENT_WRITE_PROXY: '',
+    
     // Supabase configuration - optional, disabled by default
     SUPABASE: {
         enabled: false,
