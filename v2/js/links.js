@@ -14,12 +14,34 @@ class LinksModule {
 
     async loadLinks() {
         try {
+            // Try loading from Worker if live data is enabled
+            if (window.DWC_CONFIG?.USE_LIVE_DATA && window.DWC_CONFIG?.CONTENT_WRITE_PROXY) {
+                try {
+                    console.log('Attempting to load links from Worker...');
+                    const response = await fetch(`${window.DWC_CONFIG.CONTENT_WRITE_PROXY}/api/content/links`, {
+                        mode: 'cors',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        this.links = await response.json();
+                        console.log('Links loaded from Worker:', this.links.length);
+                        return;
+                    }
+                } catch (workerError) {
+                    console.warn('Failed to load links from Worker, falling back to local JSON:', workerError);
+                }
+            }
+
+            // Fallback to local JSON
             const response = await fetch('./data/links.json');
             if (!response.ok) {
                 throw new Error(`Failed to load links: ${response.status}`);
             }
             this.links = await response.json();
-            console.log('Links loaded:', this.links.length);
+            console.log('Links loaded from local JSON:', this.links.length);
         } catch (error) {
             console.error('Error loading links:', error);
             this.links = [];
@@ -267,6 +289,16 @@ class LinksModule {
             }
             
             console.log('Link removed (memory only):', linkId);
+        }
+    }
+
+    // Admin method for updating links
+    updateLinks(newLinks) {
+        this.links = newLinks;
+        const linksGrid = document.getElementById('links-grid');
+        if (linksGrid) {
+            linksGrid.innerHTML = this.renderLinks();
+            this.setupEventListeners();
         }
     }
 }

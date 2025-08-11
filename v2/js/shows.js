@@ -17,12 +17,34 @@ class ShowsModule {
 
     async loadShows() {
         try {
+            // Try loading from Worker if live data is enabled
+            if (window.DWC_CONFIG?.USE_LIVE_DATA && window.DWC_CONFIG?.CONTENT_WRITE_PROXY) {
+                try {
+                    console.log('Attempting to load shows from Worker...');
+                    const response = await fetch(`${window.DWC_CONFIG.CONTENT_WRITE_PROXY}/api/content/shows`, {
+                        mode: 'cors',
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        this.shows = await response.json();
+                        console.log('Shows loaded from Worker:', this.shows.length);
+                        return;
+                    }
+                } catch (workerError) {
+                    console.warn('Failed to load shows from Worker, falling back to local JSON:', workerError);
+                }
+            }
+
+            // Fallback to local JSON
             const response = await fetch('./data/shows.json');
             if (!response.ok) {
                 throw new Error(`Failed to load shows: ${response.status}`);
             }
             this.shows = await response.json();
-            console.log('Shows loaded:', this.shows.length);
+            console.log('Shows loaded from local JSON:', this.shows.length);
         } catch (error) {
             console.error('Error loading shows:', error);
             this.shows = [];
@@ -308,6 +330,13 @@ class ShowsModule {
 
     getShow(showId) {
         return this.shows.find(s => s.id === showId) || null;
+    }
+
+    // Admin method for updating shows
+    updateShows(newShows) {
+        this.shows = newShows;
+        this.processShows();
+        this.renderShows();
     }
 }
 

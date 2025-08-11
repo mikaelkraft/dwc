@@ -1,0 +1,21 @@
+name = "dwc-content-writer"
+main = "index.js"
+compatibility_date = "2024-01-15"
+
+# KV namespace binding for content storage
+[[kv_namespaces]]
+binding = "DWC_CONTENT"
+id = "your-kv-namespace-id-here"
+
+# Environment variables
+[vars]
+ARTIST_ID = "default"
+
+# Secrets (set via wrangler secret put)
+# CONTENT_TOKEN = "your-secret-token-here"
+# 
+# To set the token secret:
+# wrangler secret put CONTENT_TOKEN
+# 
+# This token will be required for write operations when set.
+# If not set, all operations are allowed (dev mode).

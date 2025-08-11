@@ -1,0 +1,9 @@
+name = "dwc-kugou-proxy"
+main = "index.js"
+compatibility_date = "2024-01-15"
+
+# No KV namespaces needed for this proxy worker
+
+# Environment variables (optional)
+[vars]
+# Add any configuration variables here if needed

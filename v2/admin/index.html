@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWC v2 Admin Panel</title>
+    
+    <!-- Futuristic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .admin-panel {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .admin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .admin-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            color: #00f5ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(0, 245, 255, 0.3);
+        }
+        
+        .admin-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-tab.active {
+            color: #00f5ff;
+            border-bottom: 2px solid #00f5ff;
+        }
+        
+        .admin-content {
+            display: none;
+        }
+        
+        .admin-content.active {
+            display: block;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .admin-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #00f5ff, #0080ff);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 245, 255, 0.3);
+        }
+        
+        .admin-btn.danger {
+            background: linear-gradient(45deg, #ff4757, #ff3742);
+        }
+        
+        .content-editor {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .editor-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .editor-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            color: #00f5ff;
+        }
+        
+        .json-editor {
+            width: 100%;
+            min-height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 6px;
+            padding: 1rem;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+        
+        .status-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-family: 'Rajdhani', sans-serif;
+        }
+        
+        .status-success {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+        
+        .status-error {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+        
+        .status-warning {
+            background: rgba(241, 196, 15, 0.2);
+            border: 1px solid #f1c40f;
+            color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background particle system -->
+    <div id="particles-container"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-text">DWC</span>
+                <span class="brand-sub">Admin</span>
+            </div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Site</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel">
+        <div class="admin-header">
+            <h1 class="admin-title">
+                <i class="fas fa-cog"></i>
+                DWC v2 Admin Panel
+            </h1>
+            <p style="color: #ccc;">Manage all content for your Artist Hub</p>
+        </div>
+
+        <!-- Global Actions -->
+        <div class="admin-actions">
+            <button id="load-from-worker" class="admin-btn">
+                <i class="fas fa-download"></i>
+                Load from Worker
+            </button>
+            <button id="save-to-worker" class="admin-btn">
+                <i class="fas fa-upload"></i>
+                Save to Worker
+            </button>
+            <button id="export-all" class="admin-btn">
+                <i class="fas fa-file-download"></i>
+                Export All
+            </button>
+            <button id="import-all" class="admin-btn">
+                <i class="fas fa-file-upload"></i>
+                Import All
+            </button>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status-container"></div>
+
+        <!-- Content Tabs -->
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="profile">
+                <i class="fas fa-user"></i>
+                Profile
+            </button>
+            <button class="admin-tab" data-tab="tracks">
+                <i class="fas fa-music"></i>
+                Tracks
+            </button>
+            <button class="admin-tab" data-tab="playlists">
+                <i class="fas fa-list"></i>
+                Playlists
+            </button>
+            <button class="admin-tab" data-tab="gallery">
+                <i class="fas fa-images"></i>
+                Gallery
+            </button>
+            <button class="admin-tab" data-tab="videos">
+                <i class="fas fa-video"></i>
+                Videos
+            </button>
+            <button class="admin-tab" data-tab="shows">
+                <i class="fas fa-calendar"></i>
+                Shows
+            </button>
+            <button class="admin-tab" data-tab="links">
+                <i class="fas fa-link"></i>
+                Links
+            </button>
+        </div>
+
+        <!-- Content Editors -->
+        <div id="profile-content" class="admin-content active">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Artist Profile</h3>
+                    <button id="save-profile" class="admin-btn">Save Profile</button>
+                </div>
+                <textarea id="profile-editor" class="json-editor" placeholder="Profile JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="tracks-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Music Tracks</h3>
+                    <button id="save-tracks" class="admin-btn">Save Tracks</button>
+                </div>
+                <textarea id="tracks-editor" class="json-editor" placeholder="Tracks JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="playlists-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Playlists</h3>
+                    <button id="save-playlists" class="admin-btn">Save Playlists</button>
+                </div>
+                <textarea id="playlists-editor" class="json-editor" placeholder="Playlists JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="gallery-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Gallery</h3>
+                    <button id="save-gallery" class="admin-btn">Save Gallery</button>
+                </div>
+                <textarea id="gallery-editor" class="json-editor" placeholder="Gallery JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="videos-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Videos</h3>
+                    <button id="save-videos" class="admin-btn">Save Videos</button>
+                </div>
+                <textarea id="videos-editor" class="json-editor" placeholder="Videos JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="shows-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Shows</h3>
+                    <button id="save-shows" class="admin-btn">Save Shows</button>
+                </div>
+                <textarea id="shows-editor" class="json-editor" placeholder="Shows JSON will load here..."></textarea>
+            </div>
+        </div>
+
+        <div id="links-content" class="admin-content">
+            <div class="content-editor">
+                <div class="editor-header">
+                    <h3 class="editor-title">Links</h3>
+                    <button id="save-links" class="admin-btn">Save Links</button>
+                </div>
+                <textarea id="links-editor" class="json-editor" placeholder="Links JSON will load here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
