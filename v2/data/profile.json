@@ -1,0 +1,15 @@
+{
+  "name": "Digital World Clock Artist",
+  "tagline": "Futuristic beats for a digital world",
+  "avatar": "https://via.placeholder.com/150x150/1a1a2e/00f5ff?text=DWC",
+  "heroBackground": "https://via.placeholder.com/1200x400/1a1a2e/00f5ff?text=Artist+Hero",
+  "bio": "Digital World Clock Artist creates immersive soundscapes that blend electronic music with futuristic aesthetics. Experience the evolution of digital audio in v2.",
+  "location": "Digital Realm",
+  "website": "https://example.com",
+  "social": {
+    "twitter": "https://x.com/mikael_kraft",
+    "github": "https://github.com/mikaelkraft",
+    "instagram": "",
+    "youtube": ""
+  }
+}

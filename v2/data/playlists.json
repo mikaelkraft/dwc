@@ -1,0 +1,24 @@
+[
+  {
+    "id": "favorites",
+    "name": "Favorites",
+    "description": "Top picks for digital wanderers",
+    "tracks": ["righteous-juice-wrld", "future-track-1", "future-track-2"],
+    "coverUrl": "https://via.placeholder.com/300x300/1a1a2e/00f5ff?text=Favorites",
+    "isDefault": true
+  },
+  {
+    "id": "chill-vibes",
+    "name": "Chill Vibes", 
+    "description": "Relaxing electronic atmospheres",
+    "tracks": ["righteous-juice-wrld"],
+    "coverUrl": "https://via.placeholder.com/300x300/2e1a2e/ff5f00?text=Chill"
+  },
+  {
+    "id": "high-energy",
+    "name": "High Energy",
+    "description": "Beats that energize the digital soul",
+    "tracks": [],
+    "coverUrl": "https://via.placeholder.com/300x300/1a2e1a/ff0080?text=Energy"
+  }
+]
