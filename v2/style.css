@@ -97,7 +97,7 @@ body {
 
 /* Main content */
 .main-content {
-    padding-top: 100px;
+    padding-top: 110px;
     min-height: 100vh;
     max-width: 1200px;
     margin: 0 auto;
@@ -186,6 +186,7 @@ body {
 
 .track-details {
     flex: 1;
+    min-width: 0;
 }
 
 .track-title {
@@ -196,6 +197,9 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .track-artist {
@@ -596,6 +600,73 @@ body {
 }
 
 /* New v2 Module Styles */
+
+/* Content Tabs */
+.content-tabs {
+    background: rgba(26, 26, 46, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+    overflow: hidden;
+}
+
+.tab-nav {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex: 1;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.tab-btn.active {
+    color: #00f5ff;
+    border-bottom-color: #00f5ff;
+    background: rgba(0, 245, 255, 0.1);
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-content {
+    position: relative;
+}
+
+.tab-panel {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tab-panel.active {
+    display: block;
+    opacity: 1;
+}
+
+.tab-placeholder {
+    padding: 3rem;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
 
 /* Playlist Container */
 .playlist-container {
@@ -1100,6 +1171,20 @@ body {
 .ticket-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 245, 255, 0.3);
+}
+
+.ticket-btn.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    margin: 0.2rem;
+}
+
+.ticket-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
 }
 
 .show-status {

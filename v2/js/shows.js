@@ -77,7 +77,7 @@ class ShowsModule {
                     <i class="fas fa-chevron-down"></i>
                 </button>
             </div>
-            <div class="shows-content" id="shows-content">
+            <div class="shows-content visible" id="shows-content">
                 <div class="shows-tabs">
                     <button class="tab-btn active" data-tab="upcoming">
                         Upcoming Shows (${this.upcomingShows.length})
@@ -97,15 +97,22 @@ class ShowsModule {
             </div>
         `;
 
-        // Insert after videos section or lyrics container
-        const videosSection = document.querySelector('.videos-section');
-        const lyricsContainer = document.querySelector('.lyrics-container');
-        const insertAfter = videosSection || lyricsContainer;
-        
-        if (insertAfter) {
-            insertAfter.parentNode.insertBefore(showsSection, insertAfter.nextSibling);
+        // Insert after videos section or lyrics container, or inside #tab-shows if tabs exist
+        const tabShows = document.querySelector('#tab-shows');
+        if (tabShows) {
+            // If tabs exist, append inside the shows tab
+            tabShows.appendChild(showsSection);
         } else {
-            document.querySelector('.main-content').appendChild(showsSection);
+            // Fallback to existing logic
+            const videosSection = document.querySelector('.videos-section');
+            const lyricsContainer = document.querySelector('.lyrics-container');
+            const insertAfter = videosSection || lyricsContainer;
+            
+            if (insertAfter) {
+                insertAfter.parentNode.insertBefore(showsSection, insertAfter.nextSibling);
+            } else {
+                document.querySelector('.main-content').appendChild(showsSection);
+            }
         }
     }
 
@@ -127,7 +134,7 @@ class ShowsModule {
         const formattedDate = this.formatDate(date);
         const formattedTime = this.formatTime(date);
         const isPast = type === 'past';
-        const canBuyTickets = !isPast && show.ticketUrl && !show.soldOut;
+        const canBuyTickets = !isPast && (show.tickets?.length > 0 || show.ticketUrl) && !show.soldOut;
 
         return `
             <div class="show-item ${isPast ? 'past' : ''} ${show.soldOut ? 'sold-out' : ''}" 
@@ -175,13 +182,31 @@ class ShowsModule {
         }
 
         if (canBuyTickets) {
-            return `
-                <a href="${show.ticketUrl}" target="_blank" rel="noopener noreferrer" 
-                   class="ticket-btn">
-                    <i class="fas fa-ticket-alt"></i>
-                    Get Tickets
-                </a>
-            `;
+            // Check if show has multiple tickets array
+            if (show.tickets && Array.isArray(show.tickets) && show.tickets.length > 0) {
+                const ticketButtons = show.tickets.map(ticket => `
+                    <a href="${ticket.url}" target="_blank" rel="noopener noreferrer" 
+                       class="ticket-btn small">
+                        <i class="fas fa-ticket-alt"></i>
+                        ${ticket.label}
+                    </a>
+                `).join('');
+                
+                return `
+                    <div class="ticket-badge-group">
+                        ${ticketButtons}
+                    </div>
+                `;
+            } else if (show.ticketUrl) {
+                // Fallback to single ticket URL
+                return `
+                    <a href="${show.ticketUrl}" target="_blank" rel="noopener noreferrer" 
+                       class="ticket-btn">
+                        <i class="fas fa-ticket-alt"></i>
+                        Get Tickets
+                    </a>
+                `;
+            }
         }
 
         return `
@@ -272,7 +297,7 @@ class ShowsModule {
                         </div>
                         <div class="show-status-info">
                             ${this.renderShowActions(show, 
-                                !this.isPastShow(show) && show.ticketUrl && !show.soldOut, 
+                                !this.isPastShow(show) && (show.tickets?.length > 0 || show.ticketUrl) && !show.soldOut, 
                                 this.isPastShow(show))}
                         </div>
                     </div>
