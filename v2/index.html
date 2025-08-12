@@ -37,28 +37,30 @@
                     <i class="fab fa-github"></i>
                     <span>Source</span>
                 </a>
+                <button id="search-toggle" class="nav-link search-trigger" aria-expanded="false" aria-controls="search-panel">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <span class="sr-only">Open search</span>
+                </button>
             </nav>
+        </div>
+
+        <div class="hero-clock">
+            <div id="digital-clock" class="digital-clock"></div>
+            <div class="clock-label">Current Time</div>
+        </div>
+
+        <div id="search-panel" class="search-panel" hidden>
+            <form id="search-form" class="search-form" role="search">
+                <input id="music-search" name="q" type="text" placeholder="Search music..." autocomplete="off" class="search-field" aria-label="Search music">
+                <button id="search-btn" type="submit" class="search-submit" aria-label="Submit search">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
         </div>
     </header>
 
     <!-- Main content -->
     <main class="main-content">
-        <!-- Digital clock -->
-        <div class="clock-container">
-            <div id="digital-clock" class="digital-clock"></div>
-            <div class="clock-label">Current Time</div>
-        </div>
-
-        <!-- Music search box -->
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" id="music-search" placeholder="Search for music..." class="search-input">
-                <button id="search-btn" class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-
         <!-- Player container -->
         <div class="player-container">
             <!-- Track info -->
@@ -149,7 +151,28 @@
                 <button id="logout-btn" class="admin-btn" style="display: none;">Logout</button>
             </div>
         </div>
+
+        <!-- Gallery (placeholder container if gallery.js populates) -->
+        <section id="gallery" class="gallery-section">
+            <header class="gallery-header">
+                <h2 class="gallery-title"><i class="fas fa-images"></i> Gallery</h2>
+            </header>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Dynamically injected items -->
+            </div>
+        </section>
     </main>
+
+    <!-- Supported by -->
+    <section class="support-bar">
+        <div class="support-inner">
+            <span class="support-label">Supported by</span>
+            <ul class="support-logos">
+                <li><a href="#">Sponsor1</a></li>
+                <li><a href="#">Sponsor2</a></li>
+            </ul>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -189,13 +212,47 @@
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Set V1 link URL from config
+        // V1 link dynamic
         document.addEventListener('DOMContentLoaded', () => {
             const v1Link = document.getElementById('v1-link');
             if (v1Link && window.DWC_CONFIG?.V1_URL) {
                 v1Link.href = window.DWC_CONFIG.V1_URL;
             }
         });
+
+        // Search panel toggle
+        const toggle = document.getElementById('search-toggle');
+        const panel = document.getElementById('search-panel');
+        const field = document.getElementById('music-search');
+
+        if (toggle && panel && field) {
+            toggle.addEventListener('click', () => {
+                const open = !panel.hasAttribute('hidden');
+                if (open) {
+                    panel.setAttribute('hidden', '');
+                    toggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    panel.removeAttribute('hidden');
+                    toggle.setAttribute('aria-expanded', 'true');
+                    requestAnimationFrame(() => field.focus());
+                }
+            });
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && !panel.hasAttribute('hidden')) {
+                    panel.setAttribute('hidden','');
+                    toggle.setAttribute('aria-expanded','false');
+                    toggle.focus();
+                }
+            });
+
+            document.addEventListener('pointerdown', e => {
+                if (!panel.hasAttribute('hidden') && !panel.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
+                    panel.setAttribute('hidden','');
+                    toggle.setAttribute('aria-expanded','false');
+                }
+            });
+        }
     </script>
 </body>
 </html>
