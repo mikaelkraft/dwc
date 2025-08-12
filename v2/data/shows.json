@@ -11,17 +11,20 @@
   },
   {
     "id": "la-show-2025",
-    "dateISO": "2025-03-15T20:00:00Z",
+    "dateISO": "2025-08-15T20:00:00Z",
     "city": "Los Angeles",
     "venue": "The Forum",
     "country": "USA",
-    "ticketUrl": "https://example.com/tickets/la-2025",
+    "tickets": [
+      { "label": "General", "url": "https://example.com/tickets/la-2025/general" },
+      { "label": "VIP", "url": "https://example.com/tickets/la-2025/vip" }
+    ],
     "soldOut": false,
     "note": "Special tribute performance"
   },
   {
     "id": "chicago-show-2025",
-    "dateISO": "2025-03-22T19:30:00Z", 
+    "dateISO": "2025-09-22T19:30:00Z", 
     "city": "Chicago",
     "venue": "United Center",
     "country": "USA",
@@ -31,11 +34,15 @@
   },
   {
     "id": "london-upcoming-2025",
-    "dateISO": "2025-04-05T19:00:00Z",
+    "dateISO": "2025-10-05T19:00:00Z",
     "city": "London",
     "venue": "O2 Arena",
     "country": "UK", 
-    "ticketUrl": "https://example.com/tickets/london-2025",
+    "tickets": [
+      { "label": "Standard", "url": "https://example.com/tickets/london-2025/standard" },
+      { "label": "Premium", "url": "https://example.com/tickets/london-2025/premium" },
+      { "label": "VIP", "url": "https://example.com/tickets/london-2025/vip" }
+    ],
     "soldOut": false,
     "note": "International tribute tour"
   }
